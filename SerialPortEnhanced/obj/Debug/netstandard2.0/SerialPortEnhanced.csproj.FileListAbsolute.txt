@@ -1,0 +1,10 @@
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/bin/Debug/netstandard2.0/SerialPortEnhanced.deps.json
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/bin/Debug/netstandard2.0/SerialPortEnhanced.dll
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/bin/Debug/netstandard2.0/SerialPortEnhanced.pdb
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/obj/Debug/netstandard2.0/SerialPortEnhanced.csproj.AssemblyReference.cache
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/obj/Debug/netstandard2.0/SerialPortEnhanced.GeneratedMSBuildEditorConfig.editorconfig
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/obj/Debug/netstandard2.0/SerialPortEnhanced.AssemblyInfoInputs.cache
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/obj/Debug/netstandard2.0/SerialPortEnhanced.AssemblyInfo.cs
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/obj/Debug/netstandard2.0/SerialPortEnhanced.csproj.CoreCompileInputs.cache
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/obj/Debug/netstandard2.0/SerialPortEnhanced.dll
+/home/liquidsnake/volumes/work/SerialPort-Enhanced/SerialPortEnhanced/obj/Debug/netstandard2.0/SerialPortEnhanced.pdb
