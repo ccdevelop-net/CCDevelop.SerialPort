@@ -1,2 +1,4 @@
-# SerialPort-Enhanced
-Serial Port library with advanced features
+# CCDevelop.SerialPort
+Serial Port library with advanced features by CCDevelop
+
+
