@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RNEqZ6O3phzqMNOyt3XYZeoH58hB4TNYYxPHeL+rHulAKllXIFr/eM0mDtG/PB2A+4Gcp7HBZs0n+6n8Jdcv7A==",
+  "dgSpecHash": "eYKVhlT6kmKjyaYOoDOKXf8JnPAU6QMUxVwGlelleDJLteiDvVqoF48q3/l5/bJjBjiUWEaswb+xge1uWUsYDw==",
   "success": true,
-  "projectFilePath": "/home/liquidsnake/volumes/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
+  "projectFilePath": "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
   "expectedPackageFiles": [
     "/home/liquidsnake/.nuget/packages/microsoft.extensions.configuration/2.1.0/microsoft.extensions.configuration.2.1.0.nupkg.sha512",
     "/home/liquidsnake/.nuget/packages/microsoft.extensions.configuration.abstractions/2.1.0/microsoft.extensions.configuration.abstractions.2.1.0.nupkg.sha512",

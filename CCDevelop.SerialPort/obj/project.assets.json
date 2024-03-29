@@ -899,11 +899,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/liquidsnake/volumes/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
+      "projectUniqueName": "/media/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
       "projectName": "CCDevelop.SerialPort",
-      "projectPath": "/home/liquidsnake/volumes/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
+      "projectPath": "/media/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
       "packagesPath": "/home/liquidsnake/.nuget/packages/",
-      "outputPath": "/home/liquidsnake/volumes/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/",
+      "outputPath": "/media/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/liquidsnake/.nuget/NuGet/NuGet.Config"
@@ -956,7 +956,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.419/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.420/RuntimeIdentifierGraph.json"
       }
     }
   }
