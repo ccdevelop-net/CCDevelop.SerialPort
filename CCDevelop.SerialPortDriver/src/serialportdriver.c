@@ -34,7 +34,7 @@
 typedef struct timeout {
   // Used to store the previous time (for computing timeout)
   struct timeval      previousTime;
-};
+} timeout;
 
 
 //------------------------------------------------------------------------------
@@ -88,46 +88,46 @@ uint64_t ElapsedTimeMS(struct timeout * tmo) {
  * @return -3 MaxNbBytes is reached
  */
 int32_t ReadStringNoTimeOut(int32_t fd, char * receivedString, char finalChar, uint32_t maxNbBytes) {
-    // Function Variables
-    uint32_t nbBytes =0;
-    char charRead;
+  // Function Variables
+  uint32_t nbBytes =0;
+  char charRead;
 
-    // While the buffer is not full
-    while (nbBytes < maxNbBytes) {
-      // Read a character with the restant time
-      charRead=readChar(&receivedString[nbBytes]);
+  // While the buffer is not full
+  while (nbBytes < maxNbBytes) {
+    // Read a character with the restant time
+    charRead = ReadByte(fd, (uint8_t*)&receivedString[nbBytes], 0);
 
-      // Check a character has been read
-      if (charRead == 1) {
-        // Check if this is the final char
-        if (receivedString[nbBytes] == finalChar) {
-            // This is the final char, add zero (end of string)
-            receivedString[++nbBytes] = 0;
-            // Return the number of bytes read
-            return nbBytes;
-        }
-
-        // The character is not the final char, increase the number of bytes read
-        nbBytes++;
+    // Check a character has been read
+    if (charRead == 1) {
+      // Check if this is the final char
+      if (receivedString[nbBytes] == finalChar) {
+          // This is the final char, add zero (end of string)
+          receivedString[++nbBytes] = 0;
+          // Return the number of bytes read
+          return nbBytes;
       }
 
-      // An error occured while reading, return the error number
-      if (charRead < 0) {
-        return charRead;
-      }
+      // The character is not the final char, increase the number of bytes read
+      nbBytes++;
     }
 
-    // Buffer is full : return -3
-    return -3;
+    // An error occured while reading, return the error number
+    if (charRead < 0) {
+      return charRead;
+    }
+  }
+
+  // Buffer is full : return -3
+  return -3;
 }
 //------------------------------------------------------------------------------
 
 
 //------------------------------------------------------------------------------
 __attribute__ ((visibility ("default")))
-void Init(int32_t fd) {
+void Init(int32_t * fd) {
   (void)(fd);
-  fd = -1;
+  *fd = -1;
 }
 //------------------------------------------------------------------------------
 __attribute__ ((visibility ("default")))
@@ -460,23 +460,12 @@ int32_t WriteString(int32_t fd, const char * receivedString) {
   // Write operation successful
   return 1;
 }
-
-/*!
-     \brief Read a string from the serial device (with timeout)
-     \param receivedString : string read on the serial device
-     \param finalChar : final char of the string
-     \param maxNbBytes : maximum allowed number of characters read
-     \param timeOut_ms : delay of timeout before giving up the reading (optional)
-     \return  >0 success, return the number of bytes read (including the null character)
-     \return  0 timeout is reached
-     \return -1 error while setting the Timeout
-     \return -2 error while reading the character
-     \return -3 MaxNbBytes is reached
-  */
-int32_t ReadString(char *receivedString, char finalChar, uint32_t maxNbBytes, uint32_t timeoutMS) {
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+int32_t ReadString(int32_t fd, char * receivedString, char finalChar, uint32_t maxNbBytes, uint32_t timeoutMS) {
   // Check if timeout is requested
   if (timeoutMS == 0) {
-    return ReadStringNoTimeOut(receivedString, finalChar, maxNbBytes);
+    return ReadStringNoTimeOut(fd, receivedString, finalChar, maxNbBytes);
   }
 
   // Function Variables
@@ -490,13 +479,13 @@ int32_t ReadString(char *receivedString, char finalChar, uint32_t maxNbBytes, ui
 
   // While the buffer is not full
   while (nbBytes < maxNbBytes) {
-    // Compute the TimeOut for the next call of ReadChar
+    // Compute the TimeOut for the next call of ReadByte
     timeoutParam = timeoutMS - ElapsedTimeMS(&timer);
 
     // If there is time remaining
     if (timeoutParam > 0) {
       // Wait for a byte on the serial link with the remaining time as timeout
-      charRead = ReadByte(&receivedString[nbBytes], timeoutParam);
+      charRead = ReadByte(fd, (uint8_t*)&receivedString[nbBytes], timeoutParam);
 
       // If a byte has been received
       if (charRead == 1) {
@@ -533,5 +522,205 @@ int32_t ReadString(char *receivedString, char finalChar, uint32_t maxNbBytes, ui
   // Buffer is full : return -3
   return -3;
 }
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+int32_t WriteBytes(int32_t fd, const uint8_t * buffer, const uint32_t nbBytes) {
+    // Write data
+    if (write (fd, buffer, nbBytes) != (ssize_t)nbBytes) {
+      return -1;
+    }
+
+    // Write operation successful
+    return 1;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+int32_t ReadBytes (int32_t fd, uint8_t * buffer, uint32_t maxNbBytes, uint32_t timeoutMS, uint32_t sleepDurationUS) {
+  // Function VAriables
+  struct timeout  timer;
+  uint32_t nbByteRead = 0;
+
+  // Initialize the timer
+  InitTimer(&timer);
+
+  // While Timeout is not reached
+  while (timeoutMS == 0 || ElapsedTimeMS(&timer) < timeoutMS) {
+    // Compute the position of the current byte
+    uint8_t * ptr = (uint8_t*)buffer + nbByteRead;
+
+    // Try to read a byte on the device
+    int ret = read(fd, (void*)ptr, maxNbBytes - nbByteRead);
+
+    // Error while reading
+    if (ret == -1) {
+      return -2;
+    }
+
+    // One or several byte(s) has been read on the device
+    if (ret > 0) {
+      // Increase the number of read bytes
+      nbByteRead += ret;
+      // Success : bytes has been read
+      if (nbByteRead >= maxNbBytes) {
+        return nbByteRead;
+      }
+    }
+
+    // Suspend the loop to avoid charging the CPU
+    usleep(sleepDurationUS);
+  }
+
+  // Timeout reached, return the number of bytes read
+  return nbByteRead;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool FlushReceiver(int32_t fd) {
+  // Purge receiver
+  return tcflush(fd, TCIFLUSH) == 0;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+int32_t Available(int32_t fd) {
+  // Function Variables
+  int nBytes = 0;
+
+  // Return number of pending bytes in the receiver
+  ioctl(fd, FIONREAD, &nBytes);
+
+  return nBytes;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool DTR(int32_t fd, bool status) {
+  if (status) {
+    return SetDTR(fd);    // Set DTR
+  } else {
+    return ClearDTR(fd);  // Unset DTR
+  }
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool SetDTR(int32_t fd) {
+  // Function Variables
+  int32_t statusDTR = 0;
+
+  ioctl(fd, TIOCMGET, &statusDTR);
+  statusDTR |= TIOCM_DTR;
+  ioctl(fd, TIOCMSET, &statusDTR);
+
+  return true;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool ClearDTR(int32_t fd) {
+  // Function Variables
+  int32_t statusDTR = 0;
+
+  ioctl(fd, TIOCMGET, &statusDTR);
+  statusDTR &= ~TIOCM_DTR;
+  ioctl(fd, TIOCMSET, &statusDTR);
+
+  return true;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool RTS(int32_t fd, bool status) {
+  if (status) {
+    return SetRTS(fd);   // Set RTS
+  } else {
+    return ClearRTS(fd); // Unset RTS
+  }
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool SetRTS(int32_t fd) {
+  // Function Variables
+  int32_t statusRTS=0;
+
+  ioctl(fd, TIOCMGET, &statusRTS);
+  statusRTS |= TIOCM_RTS;
+  ioctl(fd, TIOCMSET, &statusRTS);
+
+  return true;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool ClearRTS(int32_t fd) {
+  // Function Variables
+  int32_t statusRTS = 0;
+
+  ioctl(fd, TIOCMGET, &statusRTS);
+  statusRTS &= ~TIOCM_RTS;
+  ioctl(fd, TIOCMSET, &statusRTS);
+
+  return true;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool IsCTS(int32_t fd) {
+  // Function Variables
+  int32_t status = 0;
+
+  //Get the current status of the CTS bit
+  ioctl(fd, TIOCMGET, &status);
+
+  return status & TIOCM_CTS;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool IsDSR(int32_t fd) {
+  // Function Variables
+  int32_t status = 0;
+
+  //Get the current status of the DSR bit
+  ioctl(fd, TIOCMGET, &status);
+
+  return status & TIOCM_DSR;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool IsDCD(int32_t fd) {
+  // Function Variables
+  int32_t status = 0;
+
+  //Get the current status of the DCD bit
+  ioctl(fd, TIOCMGET, &status);
+
+  return status & TIOCM_CAR;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool IsRI(int32_t fd) {
+  // Function Variables
+  int32_t status = 0;
+
+  //Get the current status of the RING bit
+  ioctl(fd, TIOCMGET, &status);
+
+  return status & TIOCM_RNG;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool IsDTR(int32_t fd) {
+  // Function Variables
+  int32_t status = 0;
+
+  //Get the current status of the DTR bit
+  ioctl(fd, TIOCMGET, &status);
+  return status & TIOCM_DTR  ;
+}
+//------------------------------------------------------------------------------
+__attribute__ ((visibility ("default")))
+bool IsRTS(int32_t fd) {
+  // Function Variables
+  int status = 0;
+
+  //Get the current status of the CTS bit
+  ioctl(fd, TIOCMGET, &status);
+
+  return status & TIOCM_RTS;
+}
+//------------------------------------------------------------------------------
 
 

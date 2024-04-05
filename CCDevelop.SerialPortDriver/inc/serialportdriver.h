@@ -34,13 +34,13 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/shm.h>
 #include <termios.h>
 #include <string.h>
 #include <sys/time.h>
-// File control definitions
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
@@ -88,7 +88,7 @@ typedef enum {
 /**
  * @brief Initialize serial port driver
  */
-extern void Init(int32_t fd);
+extern void Init(int32_t * fd);
 
 /**
  * @brief Open a device
@@ -195,7 +195,7 @@ extern void Close(int32_t fd);
  * @param fd - Device ID
  * @param byte - Byte to send on the port (must be terminated by '\0')
  * @return 1 success
- * @return -1 error while writting data
+ * @return -1 error while writing data
  */
 extern int32_t WriteByte(int32_t fd, uint8_t byte);
 
@@ -223,143 +223,171 @@ extern int32_t ReadByte(int32_t fd, uint8_t * data, const uint32_t timeoutMS);
  * @return 1 success
  * @return -1 error while writing data
  */
-extern int32_t WriteString(const char * str);
+extern int32_t WriteString(int32_t fd, const char * str);
 
-// Read a string (with timeout)
 /**
- * @brief
+ * @brief Read a string from the serial device (with timeout)
  * @param fd - Device ID
- * @param receivedString
- * @param finalChar
- * @param maxNbBytes
- * @param timeoutMS
- * @return
+ * @param receivedString - String read on the serial device
+ * @param finalChar - Final char of the string
+ * @param maxNbBytes - Maximum allowed number of characters read
+ * @param timeoutMS - Delay of timeout before giving up the reading
+ * @return > 0 success, return the number of bytes read (including the null character)
+ * @return  0 timeout is reached
+ * @return -1 error while setting the Timeout
+ * @return -2 error while reading the character
+ * @return -3 MaxNbBytes is reached
  */
-extern int32_t ReadString(char * receivedString, char finalChar, uint32_t maxNbBytes, const uint32_t timeoutMS);
+extern int32_t ReadString(int32_t fd, char * receivedString, char finalChar, uint32_t maxNbBytes, const uint32_t timeoutMS);
 
 //-------------------------------------------
 //---- Read/Write operation on bytes --------
 //-------------------------------------------
 
-// Write an array of bytes
 /**
- * @brief
- * @param buffer
- * @param nbBytes
- * @return
+ * @brief Write an array of data on the current serial port
+ * @param fd - Device ID
+ * @param buffer - Array of bytes to send on the port
+ * @param nbBytes - Number of byte to send
+ * @return 1 success
+ * @return -1 error while writing data
  */
-extern int32_t WriteBytes(const uint8_t * buffer, const uint32_t nbBytes);
+extern int32_t WriteBytes(int32_t fd, const uint8_t * buffer, const uint32_t nbBytes);
 
-// Read an array of byte (with timeout)
 /**
- * @brief
- * @param buffer
- * @param maxNbBytes
- * @param timeoutMS
- * @param sleepDurationUs
- * @return
+ * @brief Read an array of bytes from the serial device (with timeout)
+ * @param fd - Device ID
+ * @param buffer - Array of bytes read from the serial device
+ * @param maxNbBytes - Maximum allowed number of bytes read
+ * @param timeoutMS - Delay of timeout before giving up the reading
+ * @param sleepDurationUs - Delay of CPU relaxing in microseconds (Linux only)
+ *                          In the reading loop, a sleep can be performed after each reading
+ *                          This allows CPU to perform other tasks
+ * @return >=0 return the number of bytes read before timeout or requested data is completed
+ * @return -1 error while setting the Timeout
+ * @return -2 error while reading the byte
  */
-extern int32_t ReadBytes(uint8_t * buffer, uint32_t maxNbBytes, const uint32_t timeoutMS, uint32_t sleepDurationUs);
+extern int32_t ReadBytes(int32_t fd, uint8_t * buffer, uint32_t maxNbBytes, const uint32_t timeoutMS, uint32_t sleepDurationUs);
 
 //-------------------------------------------
 //---- Special operation --------------------
 //-------------------------------------------
 
-// Empty the received buffer
 /**
- * @brief
- * @return
+ * @brief Empty receiver buffer
+ * @note That when using serial over USB on Unix systems, a delay of 20ms may be necessary before calling the flushReceiver function
+ * @return If the function succeeds, the return true.
+ *         If the function fails, the return is false.
  */
-extern char FlushReceiver();
+extern bool FlushReceiver(int32_t fd);
 
-// Return the number of bytes in the received buffer
 /**
- * @brief
- * @return
+ * @brief Return the number of bytes in the received buffer (UNIX only)
+ * @return The number of bytes received by the serial provider but not yet read.
  */
-extern int32_t Available();
+extern int32_t Available(int32_t fd);
 
 //-------------------------------------------
 //---- Access to IO bits --------------------
 //-------------------------------------------
 
-// Set CTR status (Data Terminal Ready, pin 4)
 /**
- * @brief
- * @param status -
- * @return
+ * @brief Set or unset the bit DTR (pin 4)
+ *        DTR stands for Data Terminal Ready
+ *        Convenience method :This method calls setDTR and clearDTR
+ * @param status = true set DTR
+ *        status = false unset DTR
+ * @return If the function fails, the return value is false
+ *         If the function succeeds, the return value is true.
  */
-extern bool DTR(bool status);
-/**
- * @brief
- * @return
- */
-extern bool SetDTR(void);
-/**
- * @brief
- * @return
- */
-extern bool ClearDTR(void);
+extern bool DTR(int32_t fd, bool status);
 
-// Set RTS status (Request To Send, pin 7)
 /**
- * @brief
- * @param status
- * @return
+ * @brief Set the bit DTR (pin 4)
+ *        DTR stands for Data Terminal Ready
+ * @return If the function fails, the return value is false
+ *         If the function succeeds, the return value is true.
  */
-extern bool RTS(bool status);
-/**
- * @brief
- * @return
- */
-extern bool SetRTS(void);
-/**
- * @brief
- * @return
- */
-extern bool ClearRTS(void);
+extern bool SetDTR(int32_t fd);
 
-// Get RI status (Ring Indicator, pin 9)
 /**
- * @brief
- * @return
+ * @brief Clear the bit DTR (pin 4)
+ *        DTR stands for Data Terminal Ready
+ * @return If the function fails, the return value is false
+ *         If the function succeeds, the return value is true.
  */
-extern bool IsRI(void);
+extern bool ClearDTR(int32_t fd);
 
-// Get DCD status (Data Carrier Detect, pin 1)
 /**
- * @brief
- * @return
+ * @brief Set or unset the bit RTS (pin 7)
+ *        RTS stands for Data Terminal Ready
+ *        Convenience method :This method calls setDTR and clearDTR
+ * @param status - true set DTR
+ *        status - false unset DTR
+ * @return false if the function fails
+ * @return true if the function succeeds
  */
-extern bool IsDCD(void);
+extern bool RTS(int32_t fd, bool status);
 
-// Get CTS status (Clear To Send, pin 8)
 /**
- * @brief
- * @return
+ * @brief Set the bit RTS (pin 7)
+ *        RTS stands for Data Terminal Ready
+ * @return If the function fails, the return value is false
+ *         If the function succeeds, the return value is true.
  */
-extern bool IsCTS(void);
+extern bool SetRTS(int32_t fd);
 
-// Get DSR status (Data Set Ready, pin 9)
 /**
- * @brief
- * @return
+ * @brief Clear the bit RTS (pin 7)
+ *        RTS stands for Data Terminal Ready
+ * @return If the function fails, the return value is false
+ *         If the function succeeds, the return value is true.
  */
-extern bool IsDSR(void);
+extern bool ClearRTS(int32_t fd);
 
-// Get RTS status (Request To Send, pin 7)
 /**
- * @brief
- * @return
+ * @brief Get the RING's status (pin 9)
+ *        Ring Indicator
+ * @return Return true if RING is set otherwise false
  */
-extern bool IsRTS(void);
+extern bool IsRI(int32_t fd);
 
-// Get CTR status (Data Terminal Ready, pin 4)
 /**
- * @brief
- * @return
+ * @brief Get the DCD's status (pin 1)
+ *        CDC stands for Data Carrier Detect
+ * @return true if DCD is set
+ * @return false otherwise
  */
-extern bool IsDTR(void);
+extern bool IsDCD(int32_t fd);
 
+/**
+ * @brief Get the CTS's status (pin 8)
+ *        CTS stands for Clear To Send
+ * @return Return true if CTS is set otherwise false
+ */
+extern bool IsCTS(int32_t fd);
+
+/**
+ * @brief Get the DSR's status (pin 6)
+ *        DSR stands for Data Set Ready
+ * @return Return true if DTR is set otherwise false
+ */
+extern bool IsDSR(int32_t fd);
+
+/**
+ * @brief Get the DTR's status (pin 4)
+ *        DTR stands for Data Terminal Ready
+ *        May behave abnormally on Windows
+ * @return Return true if CTS is set otherwise false
+ */
+extern bool IsDTR(int32_t fd);
+
+/**
+ * @brief Get the RTS's status (pin 7)
+ *        RTS stands for Request To Send
+ *        May behave abnormally on Windows
+ * @return Return true if RTS is set otherwise false
+ */
+extern bool IsRTS(int32_t fd);
 
 #endif // _SERIALPORTDRIVER_H_
