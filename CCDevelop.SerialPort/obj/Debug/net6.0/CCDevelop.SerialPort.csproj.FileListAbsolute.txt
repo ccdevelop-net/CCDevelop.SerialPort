@@ -1,0 +1,11 @@
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/bin/Debug/net6.0/CCDevelop.SerialPort.dll
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/bin/Debug/net6.0/CCDevelop.SerialPort.pdb
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/CCDevelop.SerialPort.csproj.AssemblyReference.cache
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/CCDevelop.SerialPort.GeneratedMSBuildEditorConfig.editorconfig
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/CCDevelop.SerialPort.AssemblyInfoInputs.cache
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/CCDevelop.SerialPort.AssemblyInfo.cs
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/CCDevelop.SerialPort.csproj.CoreCompileInputs.cache
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/CCDevelop.SerialPort.sourcelink.json
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/CCDevelop.SerialPort.dll
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/refint/CCDevelop.SerialPort.dll
+/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net6.0/CCDevelop.SerialPort.pdb

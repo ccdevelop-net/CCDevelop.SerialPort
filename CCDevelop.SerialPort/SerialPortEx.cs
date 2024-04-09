@@ -27,6 +27,8 @@
 // ===========================================================================
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.IO.Ports;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -35,6 +37,11 @@ using System.Threading;
 // ReSharper disable InconsistentNaming
 
 namespace CCDevelop.SerialPort {
+  public class SerialPortInfo {
+    public string Name { get; set; }
+    public string Description { get; set; }
+  }
+
   public class SerialPortEx {
 
     // ReSharper disable once InconsistentNaming
@@ -55,7 +62,7 @@ namespace CCDevelop.SerialPort {
     #endregion
     
     #region PRIVATE - Variables
-    private System.IO.Ports.SerialPort _serial;
+    //private System.IO.Ports.SerialPort _serial;
     private string                     _name     = "";
     private int                        _baud     = 115200;
     private StopBits                   _stopBits = StopBits.One;
@@ -72,22 +79,45 @@ namespace CCDevelop.SerialPort {
     private          bool               _disconnectRequested;
     
     private bool                        _rwError = true; // Read/Write error state variable
+
+    private int _serial = 0;
     #endregion
 
     public SerialPortEx() {
+      Native.Init(ref _serial);
     }
     public SerialPortEx(string portName) {
       _name = portName;
+      
+      // Init serial handler
+      Native.Init(ref _serial);
     }
 
     #region PUBLIC - Properties
     // Indicate if serial port is connected.
-    public bool IsSerialConnected => _serial != null && !_rwError && !_disconnectRequested;
+    public bool IsSerialConnected => _serial != -1 && !_rwError && !_disconnectRequested;
     
     // Serial port reconnection delay in milliseconds
     public int ReconnectionDelay { get; set; } = 1000;
     #endregion
 
+    #region PUBLIC - Static Functions
+
+    public static SerialPortInfo[] Ports() {
+      // Function Variables
+      List<SerialPortInfo> ports = new List<SerialPortInfo>();
+      string[]             serials = Directory.GetFiles(@"/dev/serial/by-id");
+
+      foreach (string path in serials) {
+        FileInfo info = new FileInfo(path);
+        ports.Add(new SerialPortInfo() { Name = info.LinkTarget!.Replace(@"../../", "/dev/"), Description = info.Name } );
+      }
+      
+      return ports.ToArray();
+    }
+
+#endregion
+    
     #region PUBLIC - Functions
     //-------------------------------------------------------------------------
     public bool Connect() {   // Connect to the serial port.
@@ -148,7 +178,8 @@ namespace CCDevelop.SerialPort {
       // Check is serial connected
       if (IsSerialConnected) {
         try {
-          _serial.Write(data, 0, data.Length);
+          // TODO: To Replace with native method
+          //_serial.Write(data, 0, data.Length);
           Log.Debug($"Sent {data.Length} bytes");
           
           return true;
@@ -186,7 +217,8 @@ namespace CCDevelop.SerialPort {
           
           // Try to open serial
           if (tryOpen) {
-            _serial               =  new System.IO.Ports.SerialPort();
+            // TODO: To Replace with native method
+            /*_serial               =  new System.IO.Ports.SerialPort();
             _serial.ErrorReceived += HandleErrorReceived;
             _serial.PortName      =  _name;
             _serial.BaudRate      =  _baud;
@@ -197,7 +229,7 @@ namespace CCDevelop.SerialPort {
             _serial.Open();
             if (_serial.IsOpen) {
               success = true;
-            }
+            }*/
           } else {
             
           }
@@ -207,7 +239,9 @@ namespace CCDevelop.SerialPort {
         }
         
         // Check Serial valid
-        if (_serial != null && _serial.IsOpen) {
+        // TODO: To Replace with define
+        // TODO: To Replace with native method
+        if (_serial != -1 /*&& _serial.IsOpen*/) {
           _rwError = false;
           
           // Start the Reader task
@@ -234,7 +268,10 @@ namespace CCDevelop.SerialPort {
 
           _serialReader = null;
         }
-        if (_serial != null) {
+        // TODO: To Replace with define
+        if (_serial != -1) {
+          // TODO: To Replace with native method
+          /*
           _serial.ErrorReceived -= HandleErrorReceived;
           if (_serial.IsOpen) {
             _serial.Close();
@@ -243,7 +280,8 @@ namespace CCDevelop.SerialPort {
             StatusConnectionChanged?.Invoke(this, new StatusConnectionChangedEventArgs(false));
           }
           _serial.Dispose();
-          _serial = null;
+          _serial = null;*/
+          
         }
         _rwError = true;
       }
@@ -266,14 +304,16 @@ namespace CCDevelop.SerialPort {
         // Try to receive
         try {
           // Local Variables
-          int dataLength = _serial.BytesToRead;
+          // TODO: To Replace with native method
+          int dataLength = 0;//_serial.BytesToRead;
             
           if (dataLength > 0) {
             byte[] message = new byte[dataLength];
             
             int readBytes = 0;
             while (readBytes <= 0) {
-              readBytes = _serial.Read(message, readBytes, dataLength - readBytes);
+              // TODO: To Replace with native method
+              //readBytes = _serial.Read(message, readBytes, dataLength - readBytes);
             }
 
             // Invoke event
