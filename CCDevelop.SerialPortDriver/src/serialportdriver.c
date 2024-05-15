@@ -52,7 +52,6 @@ static void InitTimer(struct timeout * tmo) {
  * @param tmo - Pointer to timeout struct
  * @return The number of microseconds elapsed since the functions InitTimer was called.
  */
-//Return the elapsed time since initialization
 uint64_t ElapsedTimeMS(struct timeout * tmo) {
   // Function variables
   struct timeval CurrentTime;
