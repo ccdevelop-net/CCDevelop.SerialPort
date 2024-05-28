@@ -2,11 +2,13 @@ using System;
 using System.Runtime.InteropServices;
 
 namespace CCDevelop.SerialPort {
-  internal static class Native {
+  internal static unsafe class Native {
     [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "Init", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void Init(ref int fd);
+    public static extern void Init(int * fd);
 
-    //extern int Open(const char * device, const uint bauds, SerialDataBits databits, SerialParity parity, SerialStopBits stopbits);
+    [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "Open", CallingConvention = CallingConvention.Cdecl)]
+    [return:MarshalAs(UnmanagedType.I1)] 
+    public static extern int Open(sbyte * device, uint bauds, DataBits databits, Parity parity, StopBits stopbits);
     
     [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "IsOpen", CallingConvention = CallingConvention.Cdecl)]
     [return:MarshalAs(UnmanagedType.I1)] 
@@ -19,15 +21,25 @@ namespace CCDevelop.SerialPort {
     [return:MarshalAs(UnmanagedType.I4)]
     public static extern int WriteByte(int fd, byte byteTx);
 
-    //extern int ReadByte(int32_t fd, uint8_t * data, const uint32_t timeoutMS);
+    [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "ReadByte", CallingConvention = CallingConvention.Cdecl)]
+    [return:MarshalAs(UnmanagedType.I4)]
+    public static extern int ReadByte(int fd, byte * data, uint timeoutMs);
 
-    //extern int WriteString(int32_t fd, const char * str);
+    [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "WriteString", CallingConvention = CallingConvention.Cdecl)]
+    [return:MarshalAs(UnmanagedType.I4)]
+    public static extern int WriteString(int fd, sbyte * str);
 
-    //extern int ReadString(int32_t fd, char * receivedString, char finalChar, uint maxNbBytes, const uint timeoutMS);
+    [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "ReadString", CallingConvention = CallingConvention.Cdecl)]
+    [return:MarshalAs(UnmanagedType.I4)]
+    public static extern int ReadString(int fd, sbyte * receivedString, char finalChar, uint maxNbBytes, uint timeoutMs);
 
-    //extern int WriteBytes(int32_t fd, const uint8_t * buffer, const uint32_t nbBytes);
+    [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "WriteBytes", CallingConvention = CallingConvention.Cdecl)]
+    [return:MarshalAs(UnmanagedType.I4)]
+    public static extern int WriteBytes(int fd, byte * buffer, uint nbBytes);
 
-    //extern int ReadBytes(int fd, uint8_t * buffer, uint maxNbBytes, const uint timeoutMS, uint sleepDurationUs);
+    [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "ReadBytes", CallingConvention = CallingConvention.Cdecl)]
+    [return:MarshalAs(UnmanagedType.I4)]
+    public static extern int ReadBytes(int fd, byte * buffer, uint maxNbBytes, uint timeoutMs, uint sleepDurationUs);
 
     [DllImport("libCCDevelop.SerialPortDriver.so", EntryPoint = "FlushReceiver", CallingConvention = CallingConvention.Cdecl)]
     [return:MarshalAs(UnmanagedType.I1)]

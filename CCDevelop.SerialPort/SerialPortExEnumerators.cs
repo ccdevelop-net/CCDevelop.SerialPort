@@ -29,11 +29,31 @@ namespace CCDevelop.SerialPort {
   /**
    * DataBits enumerator
    */
-  public enum DataBits {
+  public enum DataBits : int {
     Five = 5, // >> Five Bits
     Six,      // >> Six Bits
     Seven,    // >> Seven Bits
     Eight,    // >> Eight Bits
     Nine,     // >> Nine Bits
+  }
+  
+  /**
+   * @brief Number of serial stop bits
+   */
+  public enum StopBits : int {
+    StopBits1 = 0,  //**< 1 stop bit
+    StopBits15,     //**< 1.5 stop bits
+    StopBits2,      //**< 2 stop bits
+  }
+
+  /**
+   * @brief Type of serial parity bits
+   */
+  public enum Parity : int {
+    ParityNone = 0, //**< No parity bit
+    ParityEven,     //**< Even parity bit
+    ParityOdd,      //**< Odd parity bit
+    ParityMark,     //**< Mark parity
+    ParitySpace     //**< Space bit
   }
 }
