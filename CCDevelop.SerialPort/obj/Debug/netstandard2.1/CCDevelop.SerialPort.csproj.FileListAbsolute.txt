@@ -1,0 +1,10 @@
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/bin/Debug/netstandard2.1/CCDevelop.SerialPort.deps.json
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/bin/Debug/netstandard2.1/CCDevelop.SerialPort.dll
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/bin/Debug/netstandard2.1/CCDevelop.SerialPort.pdb
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/netstandard2.1/CCDevelop.SerialPort.csproj.AssemblyReference.cache
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/netstandard2.1/CCDevelop.SerialPort.GeneratedMSBuildEditorConfig.editorconfig
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/netstandard2.1/CCDevelop.SerialPort.AssemblyInfoInputs.cache
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/netstandard2.1/CCDevelop.SerialPort.AssemblyInfo.cs
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/netstandard2.1/CCDevelop.SerialPort.csproj.CoreCompileInputs.cache
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/netstandard2.1/CCDevelop.SerialPort.dll
+/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/netstandard2.1/CCDevelop.SerialPort.pdb

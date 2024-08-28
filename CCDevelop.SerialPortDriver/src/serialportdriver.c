@@ -314,19 +314,23 @@ int32_t Open(const char * device, const uint32_t bauds, SerialDataBits databits,
     switch(databits) {
       //==========================================
       case SERIAL_DATABITS_5: {
-        databitsFlag = CS5; break;
+        databitsFlag = CS5;
+        break;
       }
       //==========================================
       case SERIAL_DATABITS_6: {
-        databitsFlag = CS6; break;
+        databitsFlag = CS6;
+        break;
       }
       //==========================================
       case SERIAL_DATABITS_7: {
-        databitsFlag = CS7; break;
+        databitsFlag = CS7;
+        break;
       }
       //==========================================
       case SERIAL_DATABITS_8: {
-        databitsFlag = CS8; break;
+        databitsFlag = CS8;
+        break;
       }
       //==========================================
       default: {

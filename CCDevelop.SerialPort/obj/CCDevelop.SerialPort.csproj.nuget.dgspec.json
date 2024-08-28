@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj": {}
+    "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj": {}
   },
   "projects": {
-    "/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj": {
+    "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
+        "projectUniqueName": "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
         "projectName": "CCDevelop.SerialPort",
-        "projectPath": "/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
+        "projectPath": "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
         "packagesPath": "/home/liquidsnake/.nuget/packages/",
-        "outputPath": "/media/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/",
+        "outputPath": "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/liquidsnake/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "netstandard2.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -35,13 +35,9 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
-            "NLog.Extensions.Logging": {
-              "target": "Package",
-              "version": "[5.3.8, )"
-            },
             "System.IO.Ports": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -59,11 +55,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.NETCore.App": {
+            "NETStandard.Library": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/liquidsnake/opt/dotnet/sdk/6.0.425/RuntimeIdentifierGraph.json"
         }
       }
     }
