@@ -1,4 +1,20 @@
-﻿using System;
+﻿// CCDevelop - Serial port library for Linux and Windows
+// Copyright (C) 2024 - Cristian Croci
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,6 +26,11 @@ using static CCDevelop.SerialPort.Linux.Helpers.SttyExecution;
 using static CCDevelop.SerialPort.Linux.Helpers.SttyParameters;
 
 namespace CCDevelop.SerialPort.Linux {
+  public class SerialPortInfo {
+    public string Name        { get; set; }
+    public string Description { get; set; }
+  }
+  
   /// <summary>
   /// A serial port implementation for POSIX style systems that have /bin/stty available.
   /// </summary>
@@ -242,6 +263,24 @@ namespace CCDevelop.SerialPort.Linux {
     //------------------------------------------------------------------------------------------------------------------
     #endregion
 
+    
+    #region PUBLIC - Static Functions
+    //------------------------------------------------------------------------------------------------------------------
+    public static SerialPortInfo[] Ports() {
+      // Function Variables
+      List<SerialPortInfo> ports   = new List<SerialPortInfo>();
+      string[]             serials = Directory.GetFiles(@"/dev/serial/by-id");
+
+      foreach (string path in serials) {
+        FileInfo info = new FileInfo(path);
+        ports.Add(new SerialPortInfo() { Name = info.LinkTarget!.Replace(@"../../", "/dev/"), Description = info.Name } );
+      }
+      
+      return ports.ToArray();
+    }
+    //------------------------------------------------------------------------------------------------------------------
+    #endregion
+    
     #region PUBLIC - Functions
     //------------------------------------------------------------------------------------------------------------------
     /// <summary>
@@ -257,7 +296,7 @@ namespace CCDevelop.SerialPort.Linux {
       // order by descending, and get the first path. This will get the first port.
       string portPath = Directory.EnumerateFiles(
                                                  Path.GetDirectoryName(_originalPortPath)!,
-                                                 Path.GetFileName(_originalPortPath)
+                                                 Path.GetFileName(_originalPortPath)!
                                                 )
         .OrderBy(p => p)
         .FirstOrDefault();
