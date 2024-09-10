@@ -11,3 +11,16 @@
 /home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/refint/CCDevelop.SerialPort.dll
 /home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.pdb
 /home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/ref/CCDevelop.SerialPort.dll
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/bin/Debug/net8.0/CCDevelop.SerialPort.deps.json
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/bin/Debug/net8.0/CCDevelop.SerialPort.dll
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/bin/Debug/net8.0/CCDevelop.SerialPort.pdb
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.csproj.AssemblyReference.cache
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.GeneratedMSBuildEditorConfig.editorconfig
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.AssemblyInfoInputs.cache
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.AssemblyInfo.cs
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.csproj.CoreCompileInputs.cache
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.sourcelink.json
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.dll
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/refint/CCDevelop.SerialPort.dll
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.pdb
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/Debug/net8.0/ref/CCDevelop.SerialPort.dll

@@ -269,13 +269,20 @@ namespace CCDevelop.SerialPort.Linux {
     public static SerialPortInfo[] Ports() {
       // Function Variables
       List<SerialPortInfo> ports   = new List<SerialPortInfo>();
-      string[]             serials = Directory.GetFiles(@"/dev/serial/by-id");
+      string[]             serials = null;
 
-      foreach (string path in serials) {
-        FileInfo info = new FileInfo(path);
-        ports.Add(new SerialPortInfo() { Name = info.LinkTarget!.Replace(@"../../", "/dev/"), Description = info.Name } );
+      try {
+        serials = Directory.GetFiles(@"/dev/serial/by-id");
+
+        foreach (string path in serials) {
+          FileInfo info = new FileInfo(path);
+          ports.Add(new SerialPortInfo()
+                    { Name = info.LinkTarget!.Replace(@"../../", "/dev/"), Description = info.Name });
+        }
+      } catch {
+        return null;
       }
-      
+
       return ports.ToArray();
     }
     //------------------------------------------------------------------------------------------------------------------

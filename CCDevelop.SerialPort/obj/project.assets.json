@@ -238,11 +238,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
+      "projectUniqueName": "/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
       "projectName": "CCDevelop.SerialPort",
-      "projectPath": "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
+      "projectPath": "/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
       "packagesPath": "/home/liquidsnake/.nuget/packages/",
-      "outputPath": "/home/liquidsnake/data-disk/work/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/",
+      "outputPath": "/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/liquidsnake/.nuget/NuGet/NuGet.Config"
