@@ -20,14 +20,27 @@ using System.Collections.Generic;
 namespace CCDevelop.SerialPort.Linux.Helpers {
   internal static class SttyParameters {
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Get list all TTY terminal
+    /// </summary>
+    /// <returns>Return list of terminal</returns>
     public static IEnumerable<string> GetListAllTtyParam() {
       yield return "-a";
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Get terminal TTY parameter of a specific port
+    /// </summary>
+    /// <param name="port">Requaired port</param>
+    /// <returns>List of parameter</returns>
     public static IEnumerable<string> GetPortTtyParam(string port) {
       yield return $"-F {port}";
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Get sane TTY parameter
+    /// </summary>
+    /// <returns>List of sane parameter</returns>
     public static IEnumerable<string> GetSaneModeTtyParam() {
       // sane is a composite command that sets:
       //
@@ -36,63 +49,54 @@ namespace CCDevelop.SerialPort.Linux.Helpers {
       // echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke
       //
       // as well as "special characters" to their default values
-      //
       yield return "sane";
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Get list of raw parameter
+    /// </summary>
+    /// <param name="rawEnabled">Flag of raw enabled</param>
+    /// <returns>List of raw parameter</returns>
     public static IEnumerable<string> GetRawModeTtyParam(bool rawEnabled) {
       if (rawEnabled) {
         // raw is a composite command that sets:
         //
         // -ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr -icrnl -ixon -ixoff
         // -iuclc -ixany -imaxbel -opost -isig -icanon -xcase min 1 time 0
-        //
         yield return "raw";
 
         // Unfortunately, the raw parameter on its own doesn't set enough parameters to
         // actually get the tty to anywhere near a true byte in, byte out raw serial socket.
-        //
         // Remove echo and other things that will get in the way of reading raw data how we expect.
-        //
 
         // Don't send a hangup signal when the last process closes the tty
-        //
         yield return "-hupcl";
 
         // Disable modem control signals (in the negative sense. -clocal actually enables modem control signals).
-        //
         yield return "clocal";
 
         // Don't enable non-POSIX special characters
-        //
         yield return "-iexten";
 
         // Don't echo erase characters as backspace-space-backspace
-        //
         yield return "-echo";
 
         // Don't echo erase characters as backspace-space-backspace
-        //
         yield return "-echoe";
 
         // Don't echo a newline after a kill characters
-        //
         yield return "-echok";
 
         // Don't echo newline even if not echoing other characters
-        //
         yield return "-echonl";
 
         // Don't echo erased characters backward, between '\' and '/'
-        //
         yield return "-echoprt";
 
         // Don't echo control characters in hat notation ('^c')
-        //
         yield return "-echoctl";
 
         // Kill all line by obeying the echoctl and echok settings
-        //
         yield return "-echoke";
       } else {
         yield return "-raw";

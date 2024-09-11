@@ -26,8 +26,17 @@ using static CCDevelop.SerialPort.Linux.Helpers.SttyExecution;
 using static CCDevelop.SerialPort.Linux.Helpers.SttyParameters;
 
 namespace CCDevelop.SerialPort.Linux {
+  /// <summary>
+  /// Serial port information class
+  /// </summary>
   public class SerialPortInfo {
+    /// <summary>
+    /// Name of the serial
+    /// </summary>
     public string Name        { get; set; }
+    /// <summary>
+    /// Description of the serial
+    /// </summary>
     public string Description { get; set; }
   }
   
@@ -266,6 +275,10 @@ namespace CCDevelop.SerialPort.Linux {
     
     #region PUBLIC - Static Functions
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Get serial port information
+    /// </summary>
+    /// <returns>Return information of serial ports in the system</returns>
     public static SerialPortInfo[] Ports() {
       // Function Variables
       List<SerialPortInfo> ports   = new List<SerialPortInfo>();
@@ -299,8 +312,8 @@ namespace CCDevelop.SerialPort.Linux {
       ThrowIfDisposed();
 
       // Resolve the actual port, since the path given may be a wildcard.
-      // Do this by getting all the files that match the given path and search string,
-      // order by descending, and get the first path. This will get the first port.
+      // Do this by getting all the files that match the given path and search string, order by descending,
+      // and get the first path. This will get the first port.
       string portPath = Directory.EnumerateFiles(
                                                  Path.GetDirectoryName(_originalPortPath)!,
                                                  Path.GetFileName(_originalPortPath)!
@@ -342,8 +355,7 @@ namespace CCDevelop.SerialPort.Linux {
     //------------------------------------------------------------------------------------------------------------------
     /// <summary>
     /// Discards the contents of the serial port read buffer.
-    /// Note, the current implementation only reads all bytes from the buffer,
-    /// which is less than ideal.
+    /// Note, the current implementation only reads all bytes from the buffer, which is less than ideal.
     /// </summary>
     public void DiscardInBuffer() {
       ThrowIfDisposed();
@@ -356,12 +368,11 @@ namespace CCDevelop.SerialPort.Linux {
     //------------------------------------------------------------------------------------------------------------------
     /// <summary>
     /// Discards the contents of the serial port read buffer.
-    /// Note, the current implementation only reads all bytes from the buffer,
-    /// which is less than ideal. This will cause problems if MinimumBytesToRead
-    /// is not set to 0.
+    /// Note, the current implementation only reads all bytes from the buffer, which is less than ideal.
+    /// This will cause problems if MinimumBytesToRead is not set to 0.
     /// </summary>
-    /// <param name="token"></param>
-    /// <returns></returns>
+    /// <param name="token">Cancel token</param>
+    /// <returns>Return the task reference</returns>
     public async Task DiscardInBufferAsync(CancellationToken token) {
       ThrowIfDisposed();
       ThrowIfNotOpen();
@@ -373,9 +384,8 @@ namespace CCDevelop.SerialPort.Linux {
     //------------------------------------------------------------------------------------------------------------------
     /// <summary>
     /// Discards the contents of the serial port write buffer.
-    /// Note, the current implementation only flushes the stream,
-    /// which is less than ideal. This will cause problems if hardware flow control
-    /// is enabled.
+    /// Note, the current implementation only flushes the stream, which is less than ideal.
+    /// This will cause problems if hardware flow control is enabled.
     /// </summary>
     public void DiscardOutBuffer() {
       ThrowIfDisposed();
@@ -386,12 +396,11 @@ namespace CCDevelop.SerialPort.Linux {
     //------------------------------------------------------------------------------------------------------------------
     /// <summary>
     /// Discards the contents of the serial port write buffer.
-    /// Note, the current implementation only flushes the stream,
-    /// which is less than ideal. This will cause problems if hardware flow control
-    /// is enabled.
+    /// Note, the current implementation only flushes the stream, which is less than ideal.
+    /// This will cause problems if hardware flow control is enabled.
     /// </summary>
-    /// <param name="token"></param>
-    /// <returns></returns>
+    /// <param name="token">Cancel token</param>
+    /// <returns>Return the task reference</returns>
     public async Task DiscardOutBufferAsync(CancellationToken token) {
       ThrowIfDisposed();
       ThrowIfNotOpen();
@@ -400,9 +409,9 @@ namespace CCDevelop.SerialPort.Linux {
     }
     //------------------------------------------------------------------------------------------------------------------
     /// <summary>
-    /// Returns the serial port name
+    /// Get the serial port name
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Returns the name of the serial port</returns>
     public override string ToString() {
       return PortName;
     }
@@ -411,29 +420,18 @@ namespace CCDevelop.SerialPort.Linux {
 
     #region PRIVATE - Functions
     //------------------------------------------------------------------------------------------------------------------
-    /// <summary>
-    /// Throw an InvalidOperationException if the port is not open.
-    /// </summary>
     private void ThrowIfNotOpen() {
       if (!IsOpen) {
         throw new InvalidOperationException("Port is not open");
       }
     }
     //------------------------------------------------------------------------------------------------------------------
-    /// <summary>
-    /// Throw an ObjectDisposedException if the port is disposed.
-    /// </summary>
     private void ThrowIfDisposed() {
       if (_isDisposed) {
         throw new ObjectDisposedException(nameof(LinuxSerialPort));
       }
     }
     //------------------------------------------------------------------------------------------------------------------
-    /// <summary>
-    /// Applies stty arguments to the active serial port.
-    /// </summary>
-    /// <param name="sttyArguments"></param>
-    /// <returns></returns>
     private string SetTtyOnSerial(IEnumerable<string> sttyArguments) {
       // Append the serial port file argument to the list of provided arguments
       // to make the stty command target the active serial port
@@ -443,42 +441,24 @@ namespace CCDevelop.SerialPort.Linux {
       return SetTtyWithParam(arguments);
     }
     //------------------------------------------------------------------------------------------------------------------
-    /// <summary>
-    /// Applies stty arguments to the active serial port, including any prefix commands.
-    /// </summary>
-    /// <param name="sttyArguments"></param>
-    /// <returns></returns>
     private string SetTtyOnSerialWithPrefix(IEnumerable<string> sttyArguments) {
       return SetTtyOnSerial(GetAllPrefixTtyParams().Concat(sttyArguments));
     }
     //------------------------------------------------------------------------------------------------------------------
-    /// <summary>
-    /// Sets serial "sane".
-    /// </summary>
     private void SetSerialSane() {
       SetTtyOnSerial(GetSaneModeTtyParam());
     }
     //------------------------------------------------------------------------------------------------------------------
-    /// <summary>
-    /// Sets the stty parameters for all currently set properties on the serial port.
-    /// </summary>
-    /// <returns></returns>
     private void SetAllSerialParams() {
       SetTtyOnSerial(GetAllTtyParams());
     }
     //------------------------------------------------------------------------------------------------------------------
-    /// <summary>
-    /// Get tty parameters that should be run during every stty command.
-    /// These should be applied before all other parameters.
-    /// </summary>
-    /// <returns></returns>
     private IEnumerable<string> GetAllPrefixTtyParams() {
       IEnumerable<string> allParams = Enumerable.Empty<string>();
 
       // Set [-]drain parameter.
       // Setting this to false (-drain) will prevent the port from attempting to flush the output buffer before
       // setting any stty settings, avoiding a potential indefinite hang under certain conditions.
-      // 
       if (EnableDrain != null) {
         allParams = allParams.Concat(GetDrainTtyParam(EnableDrain.Value));
       }
@@ -486,25 +466,15 @@ namespace CCDevelop.SerialPort.Linux {
       return allParams;
     }
     //------------------------------------------------------------------------------------------------------------------
-    /// <summary>
-    /// Gets the stty parameters for all currently set properties on the serial port, including prefix commands.
-    /// </summary>
-    /// <returns></returns>
     private IEnumerable<string> GetAllTtyParams() {
+      // Function Variables
       IEnumerable<string> allParams = GetAllPrefixTtyParams();
 
       // Start with sane to reset any previous commands
-      //
       allParams = allParams.Concat(GetSaneModeTtyParam());
-
-      //
-      // When properties are set for the first time, their backing value transitions
-      // from null to the requested value.
-      //
-      // Return parameters for all property backing values that aren't null, since
-      // these have been set.
-      //
-
+      
+      // When properties are set for the first time, their backing value transitions from null to the requested value.
+      // Return parameters for all property backing values that aren't null, since these have been set.
       allParams = allParams.Concat(GetRawModeTtyParam(_enableRawMode));
 
       if (_baudRate.HasValue) {
