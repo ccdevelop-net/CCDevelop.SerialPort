@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CCDevelop.SerialPort")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ecaef78063187b9fe6db7ccc9ae2580a1962e79b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50080cdf0bec710cf365fa7c9b4064ca9548e028")]
 [assembly: System.Reflection.AssemblyProductAttribute("CCDevelop.SerialPort")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CCDevelop.SerialPort")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

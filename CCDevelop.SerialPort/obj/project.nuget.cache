@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m5dxW1cd5Pc=",
+  "dgSpecHash": "dIQasNE3bE4=",
   "success": true,
-  "projectFilePath": "/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
+  "projectFilePath": "/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/CCDevelop.SerialPort/CCDevelop.SerialPort.csproj",
   "expectedPackageFiles": [
     "/home/liquidsnake/.nuget/packages/runtime.linux-arm.runtime.native.system.io.ports/8.0.0/runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
     "/home/liquidsnake/.nuget/packages/runtime.linux-arm64.runtime.native.system.io.ports/8.0.0/runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
