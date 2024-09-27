@@ -34,7 +34,7 @@ namespace CCDevelop.SerialPort.Linux.Helpers {
     /// <summary>
     /// Checks if the stty executable is present on the system.
     /// </summary>
-    /// <returns>Return <see cref="true"/> if platform is compatible </returns>
+    /// <returns>Return true if platform is compatible </returns>
     public static bool IsPlatformCompatible() {
       return File.Exists(SttyPath);
     }

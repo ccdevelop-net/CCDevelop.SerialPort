@@ -1,0 +1,315 @@
+\doxysection{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port Interface Reference}
+\hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort}{}\label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+
+
+Interface for a serial port.  
+
+
+
+
+Inheritance diagram for CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a9d11865d15189d1c3f06b08245006304}{Open}} ()
+\begin{DoxyCompactList}\small\item\em Open serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_ad6a1ef963e9d7fb7cfa30c230c8767a5}{Close}} ()
+\begin{DoxyCompactList}\small\item\em Close serial port. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a845e772a8acdf41254e98845b6b30108}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Read serial object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a73646085a739a014e54b9a3869b39ae6}{Discard\+In\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Discard data in received buffer. \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_ad84be27363778dbd1f5921766aa78807}{Discard\+In\+Buffer\+Async}} (Cancellation\+Token token)
+\begin{DoxyCompactList}\small\item\em Discard data in received buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a5b237c5cbd6246801ceed2be1b8d2afc}{Discard\+Out\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Discard data in transmit buffer. \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_adc298fead0a06e91bf1abee2990049ba}{Discard\+Out\+Buffer\+Async}} (Cancellation\+Token token)
+\begin{DoxyCompactList}\small\item\em Discard data in transmit buffer, in asyncronus mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Stream \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a8252b40c0a735f4f4a57b4d7ffef79af}{Base\+Stream}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Base stream of the serial System.\+IO.\+Stream \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a1643643a3672a9e7af379e5031060708}{Baud\+Rate}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Baudrate of the serial Values\+: \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a733c141a803675ecc039d0ff51e53cef}{Data\+Bits}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Serial data bits. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_a88c6080345027cb34e3e9856b2d2a7ce}{Enums.\+Handshake}} \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a3f44ac0de7c635ef97e78d135c881c04}{Handshake}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Serial handshake type \doxylink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_a88c6080345027cb34e3e9856b2d2a7ce}{CCDevelop.\+Serial\+Port.\+Abstractions.\+Enums.\+Handshake} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a5b65fbc56988322e6e1f6ad6b9ceae33}{Is\+Open}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Check is serial is opened. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_aed8e6cccfec28297f41a7c71c606ca64}{Enums.\+Parity}} \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a781456b15325871d7fb3ca5af6f5080f}{Parity}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Serial parity type \doxylink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_aed8e6cccfec28297f41a7c71c606ca64}{CCDevelop.\+Serial\+Port.\+Abstractions.\+Enums.\+Parity} \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a8ac5c900b998ded253cc3a13167e313e}{Port\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Serial port name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_abb3f86175986b5ec81cebb033f0ec788}{Read\+Timeout}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Serial reading timeout in milliseconds. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_ab76af083e094cf30a10a2fc630c2c967}{Enums.\+Stop\+Bits}} \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a53043193aa85be8065596801499f5da7}{Stop\+Bits}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Serial stop bits type \doxylink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_ab76af083e094cf30a10a2fc630c2c967}{CCDevelop.\+Serial\+Port.\+Abstractions.\+Enums.\+Stop\+Bits} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for a serial port. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_ad6a1ef963e9d7fb7cfa30c230c8767a5}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!Close@{Close}}
+\index{Close@{Close}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_ad6a1ef963e9d7fb7cfa30c230c8767a5} 
+void CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Close serial port. 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a9d024556f880807beff22a7aafaaa6cc}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a4d4f3d7024e7e4c891ff62028f30750d}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a73646085a739a014e54b9a3869b39ae6}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!DiscardInBuffer@{DiscardInBuffer}}
+\index{DiscardInBuffer@{DiscardInBuffer}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{DiscardInBuffer()}{DiscardInBuffer()}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a73646085a739a014e54b9a3869b39ae6} 
+void CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Discard\+In\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Discard data in received buffer. 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a770e21872ca549df38d5aee2cdfeaf77}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a86fcbe080d3e377dae3c37e271fe9ab9}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_ad84be27363778dbd1f5921766aa78807}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!DiscardInBufferAsync@{DiscardInBufferAsync}}
+\index{DiscardInBufferAsync@{DiscardInBufferAsync}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{DiscardInBufferAsync()}{DiscardInBufferAsync()}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_ad84be27363778dbd1f5921766aa78807} 
+Task CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Discard\+In\+Buffer\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Discard data in received buffer. 
+
+\begin{DoxyReturn}{Returns}
+Returns task that execute operation
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a35dabdfee708ff9ebb9de5b071c5f645}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_ae135e33512d0d9df9cad7e7e3ed4a0f3}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a5b237c5cbd6246801ceed2be1b8d2afc}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!DiscardOutBuffer@{DiscardOutBuffer}}
+\index{DiscardOutBuffer@{DiscardOutBuffer}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{DiscardOutBuffer()}{DiscardOutBuffer()}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a5b237c5cbd6246801ceed2be1b8d2afc} 
+void CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Discard\+Out\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Discard data in transmit buffer. 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_aa2a85eba3b8038d23288dfe99bfcbea7}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a1bc1ab9f9af6a55ee9e3ebb0546f81ef}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_adc298fead0a06e91bf1abee2990049ba}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!DiscardOutBufferAsync@{DiscardOutBufferAsync}}
+\index{DiscardOutBufferAsync@{DiscardOutBufferAsync}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{DiscardOutBufferAsync()}{DiscardOutBufferAsync()}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_adc298fead0a06e91bf1abee2990049ba} 
+Task CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Discard\+Out\+Buffer\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Discard data in transmit buffer, in asyncronus mode. 
+
+\begin{DoxyReturn}{Returns}
+Returns task that execute operation
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ae74b96cfd43256a904176846c07d71ec}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a38370a652b8262599b12ea76a2af94fd}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a9d11865d15189d1c3f06b08245006304}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!Open@{Open}}
+\index{Open@{Open}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a9d11865d15189d1c3f06b08245006304} 
+void CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Open serial port. 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ab09d9e4f29ffe23273e130151275b92d}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a522aa84f7562e15633f33a630b0a8fe0}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a845e772a8acdf41254e98845b6b30108}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!ToString@{ToString}}
+\index{ToString@{ToString}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a845e772a8acdf41254e98845b6b30108} 
+string CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+To\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Read serial object. 
+
+\begin{DoxyReturn}{Returns}
+Return serial object
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ac3dfe905253c1d3e909e7a18c9f21c59}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a8252b40c0a735f4f4a57b4d7ffef79af}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!BaseStream@{BaseStream}}
+\index{BaseStream@{BaseStream}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{BaseStream}{BaseStream}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a8252b40c0a735f4f4a57b4d7ffef79af} 
+Stream CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Base\+Stream\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Base stream of the serial System.\+IO.\+Stream 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a6b131ccbf97d6dbdb5cdb6201886f64c}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_aaaac845170e210c55b951ccb7d512e21}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a1643643a3672a9e7af379e5031060708}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!BaudRate@{BaudRate}}
+\index{BaudRate@{BaudRate}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{BaudRate}{BaudRate}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a1643643a3672a9e7af379e5031060708} 
+int CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Baud\+Rate\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Baudrate of the serial Values\+: 
+
+
+\begin{DoxyItemize}
+\end{DoxyItemize}Baudrates    4800   9600   19200   38400   57600   115200   230400   460800   921600  
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_abb6eb60644db2e7c5b95574f928107b0}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a1c3fc239a78c75ec744c9c7e36dd3606}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a733c141a803675ecc039d0ff51e53cef}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!DataBits@{DataBits}}
+\index{DataBits@{DataBits}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{DataBits}{DataBits}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a733c141a803675ecc039d0ff51e53cef} 
+int CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Data\+Bits\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Serial data bits. 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a3355111d26ada8c16c47277fa3b7233b}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_ab6c230b3dc5233b920f2e2e39c607622}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a3f44ac0de7c635ef97e78d135c881c04}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!Handshake@{Handshake}}
+\index{Handshake@{Handshake}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{Handshake}{Handshake}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a3f44ac0de7c635ef97e78d135c881c04} 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_a88c6080345027cb34e3e9856b2d2a7ce}{Enums.\+Handshake}} CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Handshake\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Serial handshake type \doxylink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_a88c6080345027cb34e3e9856b2d2a7ce}{CCDevelop.\+Serial\+Port.\+Abstractions.\+Enums.\+Handshake} 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_aff61d3dc107d306bca39ea897d214653}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a373faa8ade183a3b0084d9a9505e9d64}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a5b65fbc56988322e6e1f6ad6b9ceae33}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!IsOpen@{IsOpen}}
+\index{IsOpen@{IsOpen}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{IsOpen}{IsOpen}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a5b65fbc56988322e6e1f6ad6b9ceae33} 
+bool CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Is\+Open\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Check is serial is opened. 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ac10a8df0012339c05515d84c24dbf54b}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a25d6aa021774c3a0084db95a9e74515d}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a781456b15325871d7fb3ca5af6f5080f}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!Parity@{Parity}}
+\index{Parity@{Parity}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{Parity}{Parity}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a781456b15325871d7fb3ca5af6f5080f} 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_aed8e6cccfec28297f41a7c71c606ca64}{Enums.\+Parity}} CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Parity\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Serial parity type \doxylink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_aed8e6cccfec28297f41a7c71c606ca64}{CCDevelop.\+Serial\+Port.\+Abstractions.\+Enums.\+Parity} 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a887659c548fc686d9c7e4e38beb8a3de}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_a2530b812d61d0fba2ba00d894f4f1847}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a8ac5c900b998ded253cc3a13167e313e}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!PortName@{PortName}}
+\index{PortName@{PortName}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{PortName}{PortName}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a8ac5c900b998ded253cc3a13167e313e} 
+string CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Port\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Serial port name. 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a195ba73cf54f4758a8483921eef37dad}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_af69f431312ba8f86ce4a2fca70713fdc}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_abb3f86175986b5ec81cebb033f0ec788}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!ReadTimeout@{ReadTimeout}}
+\index{ReadTimeout@{ReadTimeout}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{ReadTimeout}{ReadTimeout}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_abb3f86175986b5ec81cebb033f0ec788} 
+int CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Read\+Timeout\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Serial reading timeout in milliseconds. 
+
+
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ad1e73eaef7908521fcba3031b8152f46}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_add09d8b2cf0f45e7d920f7cefd8eb020}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+\Hypertarget{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a53043193aa85be8065596801499f5da7}\index{CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}!StopBits@{StopBits}}
+\index{StopBits@{StopBits}!CCDevelop.SerialPort.Abstractions.ISerialPort@{CCDevelop.SerialPort.Abstractions.ISerialPort}}
+\doxysubsubsection{\texorpdfstring{StopBits}{StopBits}}
+{\footnotesize\ttfamily \label{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a53043193aa85be8065596801499f5da7} 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_ab76af083e094cf30a10a2fc630c2c967}{Enums.\+Stop\+Bits}} CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port.\+Stop\+Bits\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Serial stop bits type \doxylink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_ab76af083e094cf30a10a2fc630c2c967}{CCDevelop.\+Serial\+Port.\+Abstractions.\+Enums.\+Stop\+Bits} 
+
+~\newline
+ 
+
+Implemented in \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a24845bb79ead7354110d8441ceaf5fc8}{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port}}, and \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort_af950e485f9426a6a1510153571b92795}{CCDevelop.\+Serial\+Port.\+Windows.\+Windows\+Serial\+Port}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Abstractions/ISerial\+Port.\+cs\end{DoxyCompactItemize}

@@ -37,3 +37,4 @@
 /home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/obj/Debug/net8.0/refint/CCDevelop.SerialPort.dll
 /home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/obj/Debug/net8.0/CCDevelop.SerialPort.pdb
 /home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/obj/Debug/net8.0/ref/CCDevelop.SerialPort.dll
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/bin/Debug/net8.0/CCDevelop.SerialPort.xml

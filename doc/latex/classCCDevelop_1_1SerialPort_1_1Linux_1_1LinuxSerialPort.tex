@@ -1,0 +1,380 @@
+\doxysection{CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port Class Reference}
+\hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort}{}\label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+
+
+A serial port implementation for POSIX style systems that have /bin/stty available.  
+
+
+
+
+Inheritance diagram for CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_adc41d5d76757e44b1642e2c64baf0345}{Linux\+Serial\+Port}} (string port)
+\begin{DoxyCompactList}\small\item\em Creates an instance of \doxylink{namespaceCCDevelop_1_1SerialPort}{Serial\+Port} for accessing a serial port on the system. Enables the serial port in raw mode by default. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ab09d9e4f29ffe23273e130151275b92d}{Open}} ()
+\begin{DoxyCompactList}\small\item\em Opens the serial port. If any of the serial port properties have been set, they will be applied as stty commands to the serial port as it is opened. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a9d024556f880807beff22a7aafaaa6cc}{Close}} ()
+\begin{DoxyCompactList}\small\item\em Closes the serial port. The serial port may be re-\/opened, as long as it is not disposed. \end{DoxyCompactList}\item 
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a796b08068a1e6ab79d785f082d00545e}\label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a796b08068a1e6ab79d785f082d00545e} 
+void {\bfseries Dispose} ()
+\begin{DoxyCompactList}\small\item\em Disposes the serial port. Once it has been disposed, it cannot be re-\/opened. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a770e21872ca549df38d5aee2cdfeaf77}{Discard\+In\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Discards the contents of the serial port read buffer. Note, the current implementation only reads all bytes from the buffer, which is less than ideal. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a35dabdfee708ff9ebb9de5b071c5f645}{Discard\+In\+Buffer\+Async}} (Cancellation\+Token token)
+\begin{DoxyCompactList}\small\item\em Discards the contents of the serial port read buffer. Note, the current implementation only reads all bytes from the buffer, which is less than ideal. This will cause problems if Minimum\+Bytes\+To\+Read is not set to 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_aa2a85eba3b8038d23288dfe99bfcbea7}{Discard\+Out\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Discards the contents of the serial port write buffer. Note, the current implementation only flushes the stream, which is less than ideal. This will cause problems if hardware flow control is enabled. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ae74b96cfd43256a904176846c07d71ec}{Discard\+Out\+Buffer\+Async}} (Cancellation\+Token token)
+\begin{DoxyCompactList}\small\item\em Discards the contents of the serial port write buffer. Note, the current implementation only flushes the stream, which is less than ideal. This will cause problems if hardware flow control is enabled. \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ac3dfe905253c1d3e909e7a18c9f21c59}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Get the serial port name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1SerialPortInfo}{Serial\+Port\+Info}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_adb2f7c9ec6702080629365871c7b9ff7}{Ports}} ()
+\begin{DoxyCompactList}\small\item\em Get serial port information -\/ Static Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a17a202a3dac014e91071d4458e8c1857}\label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a17a202a3dac014e91071d4458e8c1857} 
+const int {\bfseries Infinite\+Timeout} = 0
+\begin{DoxyCompactList}\small\item\em The value representing an infinite timout on the serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ac10a8df0012339c05515d84c24dbf54b}{Is\+Open}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em True if the serialport has been opened, and the stream is avialable for reading and writing. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a195ba73cf54f4758a8483921eef37dad}{Port\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The path of the opened port. \end{DoxyCompactList}\item 
+Stream \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a6b131ccbf97d6dbdb5cdb6201886f64c}{Base\+Stream}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The stream for reading from and writing to the serial port. \end{DoxyCompactList}\item 
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a5db84bcf008ad719fda7349f74e64ff9}\label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a5db84bcf008ad719fda7349f74e64ff9} 
+bool {\bfseries Enable\+Raw\+Mode}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Disables as much of the kernel tty layer as possible, to provide raw serialport like behaviour over the underlying tty. \end{DoxyCompactList}\item 
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_afcf0679f7216a7d438da8acb5291be02}\label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_afcf0679f7216a7d438da8acb5291be02} 
+bool? {\bfseries Enable\+Drain} = null\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Controls whether stty will attempt to flush the output buffer before applying serial configuration. If the stty version installed supports the \mbox{[}-\/\mbox{]}drain option, it is recommended to set this to false to avoid potential hangs when opening the serial port. If stty does not support \mbox{[}-\/\mbox{]}drain, this should be set to null (default). \end{DoxyCompactList}\item 
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a387d156ae1817a86f6f3ff7c3e093b07}\label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a387d156ae1817a86f6f3ff7c3e093b07} 
+int {\bfseries Minimum\+Bytes\+To\+Read}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The minimum bytes that must fill the serial read buffer before the Read command will return. (However, it may still time out and return less than this). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ad1e73eaef7908521fcba3031b8152f46}{Read\+Timeout}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The maximum amount of time a Read command will block for before returning. The time is in milliseconds, but is rounded to tenths of a second when passed to stty. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_abb6eb60644db2e7c5b95574f928107b0}{Baud\+Rate}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the baud rate of the serial port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a3355111d26ada8c16c47277fa3b7233b}{Data\+Bits}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the databits to use for the serial port. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_ab76af083e094cf30a10a2fc630c2c967}{Stop\+Bits}} \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a24845bb79ead7354110d8441ceaf5fc8}{Stop\+Bits}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the stopbits to use for the serial port. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_a88c6080345027cb34e3e9856b2d2a7ce}{Handshake}} \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_aff61d3dc107d306bca39ea897d214653}{Handshake}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the handshake method to use for the serial port. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_aed8e6cccfec28297f41a7c71c606ca64}{Parity}} \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a887659c548fc686d9c7e4e38beb8a3de}{Parity}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the parity to use for the serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}}
+
+
+\doxysubsection{Detailed Description}
+A serial port implementation for POSIX style systems that have /bin/stty available. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_adc41d5d76757e44b1642e2c64baf0345}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!LinuxSerialPort@{LinuxSerialPort}}
+\index{LinuxSerialPort@{LinuxSerialPort}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{LinuxSerialPort()}{LinuxSerialPort()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_adc41d5d76757e44b1642e2c64baf0345} 
+CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Linux\+Serial\+Port (\begin{DoxyParamCaption}\item[{string}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Creates an instance of \doxylink{namespaceCCDevelop_1_1SerialPort}{Serial\+Port} for accessing a serial port on the system. Enables the serial port in raw mode by default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The path of the serial port device, for example /dev/tty\+USB0. Wildcards are accepted, for example /dev/tty\+USB\texorpdfstring{$\ast$}{*} will open the first port that matches that path. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a9d024556f880807beff22a7aafaaa6cc}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!Close@{Close}}
+\index{Close@{Close}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a9d024556f880807beff22a7aafaaa6cc} 
+void CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Closes the serial port. The serial port may be re-\/opened, as long as it is not disposed. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_ad6a1ef963e9d7fb7cfa30c230c8767a5}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a770e21872ca549df38d5aee2cdfeaf77}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!DiscardInBuffer@{DiscardInBuffer}}
+\index{DiscardInBuffer@{DiscardInBuffer}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{DiscardInBuffer()}{DiscardInBuffer()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a770e21872ca549df38d5aee2cdfeaf77} 
+void CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Discard\+In\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Discards the contents of the serial port read buffer. Note, the current implementation only reads all bytes from the buffer, which is less than ideal. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a73646085a739a014e54b9a3869b39ae6}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a35dabdfee708ff9ebb9de5b071c5f645}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!DiscardInBufferAsync@{DiscardInBufferAsync}}
+\index{DiscardInBufferAsync@{DiscardInBufferAsync}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{DiscardInBufferAsync()}{DiscardInBufferAsync()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a35dabdfee708ff9ebb9de5b071c5f645} 
+async Task CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Discard\+In\+Buffer\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Discards the contents of the serial port read buffer. Note, the current implementation only reads all bytes from the buffer, which is less than ideal. This will cause problems if Minimum\+Bytes\+To\+Read is not set to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & Cancel token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the task reference
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_ad84be27363778dbd1f5921766aa78807}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_aa2a85eba3b8038d23288dfe99bfcbea7}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!DiscardOutBuffer@{DiscardOutBuffer}}
+\index{DiscardOutBuffer@{DiscardOutBuffer}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{DiscardOutBuffer()}{DiscardOutBuffer()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_aa2a85eba3b8038d23288dfe99bfcbea7} 
+void CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Discard\+Out\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Discards the contents of the serial port write buffer. Note, the current implementation only flushes the stream, which is less than ideal. This will cause problems if hardware flow control is enabled. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a5b237c5cbd6246801ceed2be1b8d2afc}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ae74b96cfd43256a904176846c07d71ec}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!DiscardOutBufferAsync@{DiscardOutBufferAsync}}
+\index{DiscardOutBufferAsync@{DiscardOutBufferAsync}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{DiscardOutBufferAsync()}{DiscardOutBufferAsync()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ae74b96cfd43256a904176846c07d71ec} 
+async Task CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Discard\+Out\+Buffer\+Async (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Discards the contents of the serial port write buffer. Note, the current implementation only flushes the stream, which is less than ideal. This will cause problems if hardware flow control is enabled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & Cancel token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the task reference
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_adc298fead0a06e91bf1abee2990049ba}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ab09d9e4f29ffe23273e130151275b92d}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!Open@{Open}}
+\index{Open@{Open}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ab09d9e4f29ffe23273e130151275b92d} 
+void CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Opens the serial port. If any of the serial port properties have been set, they will be applied as stty commands to the serial port as it is opened. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a9d11865d15189d1c3f06b08245006304}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_adb2f7c9ec6702080629365871c7b9ff7}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!Ports@{Ports}}
+\index{Ports@{Ports}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{Ports()}{Ports()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_adb2f7c9ec6702080629365871c7b9ff7} 
+static \mbox{\hyperlink{classCCDevelop_1_1SerialPort_1_1Linux_1_1SerialPortInfo}{Serial\+Port\+Info}}\mbox{[}$\,$\mbox{]} CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Ports (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get serial port information -\/ Static Function. 
+
+\begin{DoxyReturn}{Returns}
+Return information of serial ports in the system
+\end{DoxyReturn}
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ac3dfe905253c1d3e909e7a18c9f21c59}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!ToString@{ToString}}
+\index{ToString@{ToString}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ac3dfe905253c1d3e909e7a18c9f21c59} 
+override string CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+To\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the serial port name. 
+
+\begin{DoxyReturn}{Returns}
+Returns the name of the serial port
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a845e772a8acdf41254e98845b6b30108}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a6b131ccbf97d6dbdb5cdb6201886f64c}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!BaseStream@{BaseStream}}
+\index{BaseStream@{BaseStream}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{BaseStream}{BaseStream}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a6b131ccbf97d6dbdb5cdb6201886f64c} 
+Stream CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Base\+Stream\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The stream for reading from and writing to the serial port. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a8252b40c0a735f4f4a57b4d7ffef79af}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_abb6eb60644db2e7c5b95574f928107b0}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!BaudRate@{BaudRate}}
+\index{BaudRate@{BaudRate}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{BaudRate}{BaudRate}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_abb6eb60644db2e7c5b95574f928107b0} 
+int CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Baud\+Rate\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the baud rate of the serial port. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a1643643a3672a9e7af379e5031060708}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a3355111d26ada8c16c47277fa3b7233b}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!DataBits@{DataBits}}
+\index{DataBits@{DataBits}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{DataBits}{DataBits}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a3355111d26ada8c16c47277fa3b7233b} 
+int CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Data\+Bits\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the databits to use for the serial port. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a733c141a803675ecc039d0ff51e53cef}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_aff61d3dc107d306bca39ea897d214653}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!Handshake@{Handshake}}
+\index{Handshake@{Handshake}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{Handshake}{Handshake}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_aff61d3dc107d306bca39ea897d214653} 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_a88c6080345027cb34e3e9856b2d2a7ce}{Handshake}} CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Handshake\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the handshake method to use for the serial port. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a3f44ac0de7c635ef97e78d135c881c04}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ac10a8df0012339c05515d84c24dbf54b}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!IsOpen@{IsOpen}}
+\index{IsOpen@{IsOpen}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{IsOpen}{IsOpen}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ac10a8df0012339c05515d84c24dbf54b} 
+bool CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Is\+Open\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+True if the serialport has been opened, and the stream is avialable for reading and writing. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a5b65fbc56988322e6e1f6ad6b9ceae33}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a887659c548fc686d9c7e4e38beb8a3de}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!Parity@{Parity}}
+\index{Parity@{Parity}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{Parity}{Parity}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a887659c548fc686d9c7e4e38beb8a3de} 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_aed8e6cccfec28297f41a7c71c606ca64}{Parity}} CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Parity\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the parity to use for the serial port. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a781456b15325871d7fb3ca5af6f5080f}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a195ba73cf54f4758a8483921eef37dad}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!PortName@{PortName}}
+\index{PortName@{PortName}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{PortName}{PortName}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a195ba73cf54f4758a8483921eef37dad} 
+string CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Port\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The path of the opened port. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a8ac5c900b998ded253cc3a13167e313e}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ad1e73eaef7908521fcba3031b8152f46}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!ReadTimeout@{ReadTimeout}}
+\index{ReadTimeout@{ReadTimeout}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{ReadTimeout}{ReadTimeout}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_ad1e73eaef7908521fcba3031b8152f46} 
+int CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Read\+Timeout\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The maximum amount of time a Read command will block for before returning. The time is in milliseconds, but is rounded to tenths of a second when passed to stty. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_abb3f86175986b5ec81cebb033f0ec788}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+\Hypertarget{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a24845bb79ead7354110d8441ceaf5fc8}\index{CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}!StopBits@{StopBits}}
+\index{StopBits@{StopBits}!CCDevelop.SerialPort.Linux.LinuxSerialPort@{CCDevelop.SerialPort.Linux.LinuxSerialPort}}
+\doxysubsubsection{\texorpdfstring{StopBits}{StopBits}}
+{\footnotesize\ttfamily \label{classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort_a24845bb79ead7354110d8441ceaf5fc8} 
+\mbox{\hyperlink{namespaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1Enums_ab76af083e094cf30a10a2fc630c2c967}{Stop\+Bits}} CCDevelop.\+Serial\+Port.\+Linux.\+Linux\+Serial\+Port.\+Stop\+Bits\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the stopbits to use for the serial port. 
+
+
+
+Implements \mbox{\hyperlink{interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort_a53043193aa85be8065596801499f5da7}{CCDevelop.\+Serial\+Port.\+Abstractions.\+ISerial\+Port}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Linux/Linux\+Serial\+Port.\+cs\end{DoxyCompactItemize}

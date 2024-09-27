@@ -15,11 +15,29 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 namespace CCDevelop.SerialPort.Abstractions.Enums {
+  /// <summary>
+  /// Serial parity mode
+  /// </summary>
   public enum Parity {
+    /// <summary>
+    /// No parity
+    /// </summary>
     None,
+    /// <summary>
+    /// Parity odd
+    /// </summary>
     Odd,
+    /// <summary>
+    /// Parity even
+    /// </summary>
     Even,
+    /// <summary>
+    /// Parity mark
+    /// </summary>
     Mark,
+    /// <summary>
+    /// Parity space
+    /// </summary>
     Space
   }
 }

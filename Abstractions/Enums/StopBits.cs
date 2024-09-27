@@ -15,10 +15,25 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 namespace CCDevelop.SerialPort.Abstractions.Enums {
+  /// <summary>
+  /// Serial stop bits
+  /// </summary>
   public enum StopBits {
+    /// <summary>
+    /// No stop bit
+    /// </summary>
     None         = 0,
+    /// <summary>
+    /// One stop bit
+    /// </summary>
     One          = 1,
+    /// <summary>
+    /// Two stop bits
+    /// </summary>
     Two          = 2,
+    /// <summary>
+    /// One and half stop bit
+    /// </summary>
     OnePointFive = 3
   }
 }

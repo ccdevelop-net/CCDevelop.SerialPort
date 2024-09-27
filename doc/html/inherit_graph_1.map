@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,45,104,70"/>
+<area shape="rect" id="Node000001" href="$interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort.html" title="Interface for a serial port." alt="" coords="152,37,403,77"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="118,55,152,55,152,60,118,60"/>
+<area shape="rect" id="Node000002" href="$classCCDevelop_1_1SerialPort_1_1Linux_1_1LinuxSerialPort.html" title="A serial port implementation for POSIX style systems that have /bin/stty available." alt="" coords="463,5,667,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="416,39,462,34,463,39,417,45"/>
+<area shape="rect" id="Node000003" href="$classCCDevelop_1_1SerialPort_1_1Windows_1_1WindowsSerialPort.html" title="Wrapper for System.IO.Ports.SerialPort to interface it to the ISerialPort interface." alt="" coords="451,69,679,109"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="416,70,451,74,450,79,416,75"/>
+</map>

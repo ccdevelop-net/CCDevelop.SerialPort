@@ -1,0 +1,11 @@
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:36: warning: expected <item> tag but found <listheader> instead!
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:36: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:41: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:44: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:47: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:50: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:53: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:56: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:59: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:62: warning: lonely <item> tag found
+/home/liquidsnake/data-disk/work/CCDevelop.PPK2DotNet/CCDevelop.SerialPort/Abstractions/ISerialPort.cs:65: warning: lonely <item> tag found

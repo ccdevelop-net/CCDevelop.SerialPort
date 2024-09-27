@@ -271,12 +271,11 @@ namespace CCDevelop.SerialPort.Linux {
     }
     //------------------------------------------------------------------------------------------------------------------
     #endregion
-
     
     #region PUBLIC - Static Functions
     //------------------------------------------------------------------------------------------------------------------
     /// <summary>
-    /// Get serial port information
+    /// Get serial port information - Static Function
     /// </summary>
     /// <returns>Return information of serial ports in the system</returns>
     public static SerialPortInfo[] Ports() {

@@ -103,6 +103,11 @@ namespace CCDevelop.SerialPort.Linux.Helpers {
       }
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Enable or disable Drain parameters
+    /// </summary>
+    /// <param name="drainEnabled">Flag of drain enabled</param>
+    /// <returns>Return list string of the values</returns>
     public static IEnumerable<string> GetDrainTtyParam(bool drainEnabled) {
       if (drainEnabled) {
         yield return "drain";
@@ -111,19 +116,40 @@ namespace CCDevelop.SerialPort.Linux.Helpers {
       }
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Retrive baudrate string
+    /// </summary>
+    /// <param name="baudRate">Baud to be retrived</param>
+    /// <returns>Return list string of the values</returns>
     public static IEnumerable<string> GetBaudTtyParam(int baudRate) {
       yield return $"{baudRate}";
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Timeout on each read. Time is in tenths of a second, 1 = 100ms
+    /// </summary>
+    /// <param name="readTimeout">Read timeout</param>
+    /// <returns>Return list string of the values</returns>
     public static IEnumerable<string> GetReadTimeoutTtyParam(int readTimeout) {
       yield return
-        $"time {(readTimeout + 50) / 100}"; // timeout on each read. Time is in tenths of a second, 1 = 100ms.
+        $"time {(readTimeout + 50) / 100}"; // 
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Minimum bytes that can be read out of the stream
+    /// </summary>
+    /// <param name="byteCount">Number of byte</param>
+    /// <returns>Return list string of the values</returns>
     public static IEnumerable<string> GetMinDataTtyParam(int byteCount) {
-      yield return $"min {byteCount}"; // minimum bytes that can be read out of the stream
+      yield return $"min {byteCount}"; 
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Translate handshake mode
+    /// </summary>
+    /// <param name="handshake">Handshake mode to translate</param>
+    /// <returns>Return list string of the values</returns>
+    /// <exception cref="InvalidOperationException">Parameter provided is invalid</exception>
     public static IEnumerable<string> GetHandshakeTtyParams(Abstractions.Enums.Handshake handshake) {
       switch (handshake) {
         case Abstractions.Enums.Handshake.None:
@@ -151,6 +177,12 @@ namespace CCDevelop.SerialPort.Linux.Helpers {
       }
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Get parity translation
+    /// </summary>
+    /// <param name="parity" ><see cref="CCDevelop.SerialPort.Abstractions.Enums.Parity"/>Parity to translate</param>
+    /// <returns>Return list string of the values</returns>
+    /// <exception cref="InvalidOperationException">Parameter provided is invalid</exception>
     public static IEnumerable<string> GetParityTtyParams(Abstractions.Enums.Parity parity) {
       switch (parity) {
         case Abstractions.Enums.Parity.None:
@@ -182,17 +214,26 @@ namespace CCDevelop.SerialPort.Linux.Helpers {
       }
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="dataBits">Databits to translate</param>
+    /// <returns>Return list string of the values</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Provided parameter is out of range</exception>
     public static IEnumerable<string> GetDataBitsTtyParam(int dataBits) {
       if (dataBits < 5 || dataBits > 8) {
-        throw new ArgumentOutOfRangeException(
-                                              nameof(dataBits),
-                                              $"{nameof(dataBits)} must be between 5 and 8"
-                                             );
+        throw new ArgumentOutOfRangeException(nameof(dataBits), $"{nameof(dataBits)} must be between 5 and 8");
       }
 
       yield return $"cs{dataBits}";
     }
     //------------------------------------------------------------------------------------------------------------------
+    /// <summary>
+    /// Retrive stopbits translation
+    /// </summary>
+    /// <param name="stopBits"><see cref="CCDevelop.SerialPort.Abstractions.Enums.StopBits"/>Stop bits to convert</param>
+    /// <returns>Return list string of the values</returns>
+    /// <exception cref="InvalidOperationException">Invalid provided parameters</exception>
     public static IEnumerable<string> GetStopBitsTtyParam(Abstractions.Enums.StopBits stopBits) {
       switch (stopBits) {
         //=================================================

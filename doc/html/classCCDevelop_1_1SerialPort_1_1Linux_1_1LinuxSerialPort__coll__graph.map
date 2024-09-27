@@ -1,0 +1,7 @@
+<map id="CCDevelop.SerialPort.Linux.LinuxSerialPort" name="CCDevelop.SerialPort.Linux.LinuxSerialPort">
+<area shape="rect" id="Node000001" title="A serial port implementation for POSIX style systems that have /bin/stty available." alt="" coords="5,152,209,192"/>
+<area shape="rect" id="Node000002" href="$interfaceCCDevelop_1_1SerialPort_1_1Abstractions_1_1ISerialPort.html" title="Interface for a serial port." alt="" coords="63,79,152,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,118,110,152,105,152,105,118"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="58,5,157,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="110,44,110,79,105,79,105,44"/>
+</map>

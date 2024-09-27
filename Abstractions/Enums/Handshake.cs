@@ -15,10 +15,25 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 namespace CCDevelop.SerialPort.Abstractions.Enums {
+  /// <summary>
+  /// Serial handshake
+  /// </summary>
   public enum Handshake {
+    /// <summary>
+    /// No handhake
+    /// </summary>
     None                 = 0,
+    /// <summary>
+    /// XOn and XOff handshake
+    /// </summary>
     XOnXOff              = 1,
+    /// <summary>
+    /// Requanst to Send handshake
+    /// </summary>
     RequestToSend        = 2,
+    /// <summary>
+    /// Requanst to Send nad XOn/XOff handshake
+    /// </summary>
     RequestToSendXOnXOff = 3
   }
 }
